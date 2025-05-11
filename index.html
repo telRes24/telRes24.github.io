@@ -86,7 +86,7 @@
 <body>
     <!-- Hero Section with Video -->
     <section class="hero">
-        <h1 style="font-size: 2.5rem; color: #2E3A59; margin-bottom: 20px;">AI Job Role Predictor</h1>
+        <h1 style="font-size: 2.5rem; color: #2E3A59; margin-bottom: 20px;">Skill-based Job Role predictor</h1>
         <p style="color: #6C757D; max-width: 600px; text-align: center; margin-bottom: 40px;">
             Machine Learning + NLP to match skills with careers
         </p>
@@ -113,14 +113,30 @@
         <div class="info-card">
             <h2 style="color: #2E3A59;">About the Project</h2>
             <p style="color: #6C757D; line-height: 1.6;">
-                This project uses Random Forest and NLP techniques to predict job roles from skills with 85% accuracy. 
-                Key features include TF-IDF text processing and skill gap analysis.
+                📘 Project Overview
+This project explores how machine learning can be used to predict job salaries based on skills, qualifications, and job metadata. We collected real-world job postings from the Adzuna Job Search API, focusing on machine learning roles in San Francisco. The goal was to use these listings to build a basic predictive model for estimating salary ranges.
+
+🚀 Why It Matters
+As the global workforce becomes increasingly skill-driven, job seekers and companies alike benefit from data-driven insights. This project helps highlight how AI can be applied to career guidance, salary transparency, and workforce planning.
+
+🧠 How It Works
+Data Collection: 1500+ job listings retrieved via API.
+
+Preprocessing: Cleaning, one-hot encoding, handling missing values.
+
+Modeling: Trained a Linear Regression model using Scikit-learn.
+
+Evaluation: Model performance was evaluated using R² and RMSE metrics.
+
             </p>
-            <h3 style="margin-top: 30px; color: #2E3A59;">Key Results</h3>
+            <h3 style="margin-top: 30px; color: #2E3A59;">📊 Key Results</h3>
             <ul style="color: #6C757D; text-align: left; max-width: 600px; margin: 0 auto;">
-                <li>85% accuracy with Random Forest</li>
-                <li>Top predictive skills: Python, SQL, AWS</li>
-                <li>Potential applications in HR tech</li>
+                <li>R² Score: 0.089 — limited predictive power, highlighting the complexity of salary estimation.
+                </li>
+                <li>RMSE: ~$24,000 — shows significant variance in predicted vs. actual values.
+                </li>
+                <li>Despite modest results, the project demonstrates a solid pipeline from raw job data to a working machine learning model.
+                </li>
             </ul>
         </div>
     </section>
