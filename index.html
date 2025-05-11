@@ -1,48 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AI Project Video</title>
+    <title>AI Job Predictor</title>
     <style>
+        /* Modern Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+        
+        /* Hero Section (Video) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        }
+        
+        .video-container {
+            width: 70%;
+            max-width: 800px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            transform: scale(0.95);
+            transition: transform 0.3s;
+        }
+        
+        .video-container:hover {
+            transform: scale(1);
+        }
+        
+        /* Poster Section */
+        .poster-section {
+            min-height: 100vh;
+            padding: 60px 10%;
+            background: white;
+            text-align: center;
+        }
+        
+        .poster-img {
+            width: 80%;
+            max-width: 900px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        /* Project Info */
+        .info-section {
+            padding: 80px 10%;
             background: #f8f9fa;
         }
-        .header {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
         }
-        h1 {
-            color: #2E3A59;
-            margin: 0;
+        
+        /* Scroll Prompt */
+        .scroll-prompt {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
         }
-        .video-container {
-            width: 80%;
-            max-width: 1000px;
-            margin: 40px auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        video {
-            width: 100%;
-            display: block;
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Skill-Based Job Role Predictor</h1>
-        <p>Machine Learning model for career matching</p>
-    </div>
+    <!-- Hero Section with Video -->
+    <section class="hero">
+        <h1 style="font-size: 2.5rem; color: #2E3A59; margin-bottom: 20px;">AI Job Role Predictor</h1>
+        <p style="color: #6C757D; max-width: 600px; text-align: center; margin-bottom: 40px;">
+            Machine Learning + NLP to match skills with careers
+        </p>
+        <div class="video-container">
+            <video controls width="100%">
+                <source src="walt.MP4" type="video/mp4">
+            </video>
+        </div>
+        <div class="scroll-prompt">
+            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10L12 15L17 10" stroke="#2E3A59" stroke-width="2"/>
+            </svg>
+        </div>
+    </section>
     
-    <div class="video-container">
-        <video controls poster="thumbnail.jpg">
-            <source src="walt.MP4" type="video/mp4">
-            Your browser doesn't support HTML5 video.
-        </video>
-    </div>
+    <!-- Poster Section -->
+    <section class="poster-section" id="poster">
+        <h2 style="color: #2E3A59;">Our Project Poster</h2>
+        <img src="poster.png" alt="Project Poster" class="poster-img">
+    </section>
+    
+    <!-- Project Info Section -->
+    <section class="info-section" id="info">
+        <div class="info-card">
+            <h2 style="color: #2E3A59;">About the Project</h2>
+            <p style="color: #6C757D; line-height: 1.6;">
+                This project uses Random Forest and NLP techniques to predict job roles from skills with 85% accuracy. 
+                Key features include TF-IDF text processing and skill gap analysis.
+            </p>
+            <h3 style="margin-top: 30px; color: #2E3A59;">Key Results</h3>
+            <ul style="color: #6C757D; text-align: left; max-width: 600px; margin: 0 auto;">
+                <li>85% accuracy with Random Forest</li>
+                <li>Top predictive skills: Python, SQL, AWS</li>
+                <li>Potential applications in HR tech</li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.poster-section, .info-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s, transform 0.6s';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
